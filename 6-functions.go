@@ -20,11 +20,22 @@ func swap(x, y string) (string, string) {
 	return y, x
 }
 
+// you can name the return values
+func split(sum int) (x, y int) {
+	// these are declared as variables ad the top
+	x = sum * 4 / 9
+	y = sum - x
+	return // this is called 'naked' return, returns named argument
+}
+
 func main() {
 	fmt.Println(add(42, 13))
 	fmt.Println(add2(42, 13))
 
-	// btw assignment
+	// multiple return values:
 	a, b := swap("world!", "hello")
 	fmt.Println(a, b)
+
+	// named return values:
+	fmt.Println(split(17))
 }
