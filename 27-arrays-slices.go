@@ -32,9 +32,13 @@ func main() {
 	sliceLengthAndCapacity()
 
 	nilSlice()
+
+	creatingSlicesWithMake()
+
+	appendToSlice()
 }
 
-// Slices are like references to arrays
+// Slices are like references to arrays (pointers to arrays, with additional index and length)
 // A slice does not store any data, it just describes a section of an underlying array.
 // Changing the elements of a slice modifies the corresponding elements of its underlying array.
 // Other slices that share the same underlying array will see those changes.
@@ -125,4 +129,44 @@ func nilSlice() {
 	if s == nil {
 		fmt.Println("nil!")
 	}
+}
+
+func creatingSlicesWithMake() {
+	// make building function is used to initialize slices
+	// you can specify length = 5
+	a := make([]int, 5)
+	printSlice2("a", a)
+
+	// You can also specify a capacity
+	b := make([]int, 0, 5)
+	printSlice2("b", b)
+
+	c := b[:2]
+	printSlice2("c", c)
+
+	d := c[2:5]
+	printSlice2("d", d)
+}
+
+func printSlice2(s string, x []int) {
+	fmt.Printf("%s len=%d cap=%d %v\n",
+		s, len(x), cap(x), x)
+}
+
+func appendToSlice() {
+	fmt.Println("Append to slice --------------")
+	var s []int
+	printSlice(s)
+
+	// append works on nil slices.
+	s = append(s, 0)
+	printSlice(s)
+
+	// The slice grows as needed.
+	s = append(s, 1)
+	printSlice(s)
+
+	// We can add more than one element at a time.
+	s = append(s, 2, 3, 4)
+	printSlice(s)
 }
