@@ -14,6 +14,8 @@ Tasks from https://go.dev/tour/list
 
 ['builtin' package functions docs](https://pkg.go.dev/builtin)
 
+[Effective Go](https://go.dev/doc/effective_go)
+
 ## Usefult bultin functions
 
 - make
